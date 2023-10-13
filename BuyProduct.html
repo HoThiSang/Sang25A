@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Đặt lịch cắt tóc</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    #appointmentForm{
+        width: 30em;
+        height: 50em;
+        border: 1px solid sienna;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>Đặt lịch cắt tóc</h1>
+  <form id="appointmentForm">
+    <label for="name">Họ và tên:</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Số điện thoại:</label>
+    <input type="tel" id="phone" required>
+
+    <label for="date">Ngày cắt:</label>
+    <input type="date" id="date" required>
+
+    <label for="time">Thời gian cắt:</label>
+    <input type="time" id="time" required>
+
+    <input type="submit" value="Đặt lịch">
+  </form>
+
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Lấy giá trị từ các trường input
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+      var date = document.getElementById("date").value;
+      var time = document.getElementById("time").value;
+
+      // Tạo đối tượng appointment chứa thông tin đặt lịch
+      var appointment = {
+        name: name,
+        email: email,
+        phone: phone,
+        date: date,
+        time: time
+      };
+
+      
+      // Gửi thông tin đặt lịch đến server hoặc xử lý dữ liệu theo ý muốn
+      // Ví dụ: sử dụng Axios để gửi yêu cầu POST đến một API
+      axios.post('/api/appointments', appointment)
+        .then(function(response) {
+          console.log('Đặt lịch thành công');
+        });
+
+      //   .catch(function(error) {
+      //     console.error('Lỗi khi đặt lịch:', error);
+      //   });
+
+      // Hiển thị thông báo đặt lịch thành công (trong ví dụ này chỉ là log ra console)
+      alert('Đặt lịch thành công');
+      res();
+    });
+
+
+     function Search(){
+
+
+     }
+  </script>
+</body>
+</html>
+</body>
+</html>

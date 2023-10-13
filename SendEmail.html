@@ -5,19 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../CSS/Style_Email.css">
  
-  
 </head>
-<body>
-  <div id="cancel">
-    <button onclick=""  >X</button>
-  </div>
-  <div class="container" >
+<body class="feedback-form">
+    <div class="icon-feedback">
+          <i class="fa fa-envelope" aria-hidden="true" onclick="openMenu()"></i>
+    </div>
+  <div class="container" id="formFeedback" >
+
+    <div id="cancel">
+      <button onclick="closeForm()">X</button>
+    </div>
     <h5>Send Email</h5>
     <form id="emailForm">
       <div class="form-group">
         <input type="email" class="form-control" id="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" id="phone" placeholder="Phone" required>
       </div>
       <div class="form-group">
         <textarea class="form-control" id="message" rows="5" placeholder="Message" required></textarea>
@@ -25,65 +32,18 @@
       <button type="submit" class="btn btn-primary" onclick="addData()">Send</button>
     </form>
   </div>
-
-  <div class="container-fluid mt-5">
-    <!-- <h3>Email Data</h3> -->
-    <div id="emailTableContainer"></div>
-  </div>
-
-  <script src="../JS/Send_email.js"></script>
-    <!-- <script>
-      const arr=[];
-      function addData(){
-        obj={
-          email:document.getElementById("email").value,
-          message:document.getElementById("message").value
-        }
-
-        var arr = localStorage.getItem('emailData') ? JSON.parse(localStorage.getItem('emailData')) : [];
-        arr.push(obj);
-        localStorage.setItem('emailData', JSON.stringify(arr));
-
-        //Hiện thị bảng dữ liệu 
-        // displayData();
-
-        // Hàm này reset lại form 
-        // document.getElementById('emailForm').reset();
-      }
-
-      function displayData(){
-        var arr = localStorage.getItem('emailData') ? JSON.parse(localStorage.getItem('emailData')) : [];
-        // var tableBody = document.getElementById('emailTable');
-        // tableBody.innerHTML = ''; // Xóa nội dung bảng hiện tại
-        var html = '';
-
-        // Tạo bảng
-        html += '<table class="table table-bordered">';
-        html += '<thead>';
-        html += '<tr>';
-        html += '<th>Email</th>';
-        html += '<th>Message</th>';
-        html += '</tr>';
-        html += '</thead>';
-        html += '<tbody>';
-
-        // Thêm dữ liệu vào bảng
-        arr.forEach(function(obj) {
-          html += '<tr>';
-          html += '<td>' + obj.email + '</td>';
-          html += '<td>' + obj.message + '</td>';
-          html += '</tr>';
-        });
-
-        html += '</tbody>';
-        html += '</table>';
-
-      // Thêm bảng vào phần tử có id là "emailTableContainer"
-      document.getElementById('emailTableContainer').innerHTML = html;
-    }
-
   
+    <script>
+      let subMenu=document.getElementById("formFeedback");
 
-    </script> -->
+      function openMenu(){
+        subMenu.classList.toggle("open");
+      }
+      // function closeForm(){
+      //   const form = document.getElementById('formFeedback');
+      //   form.style.display = 'none';
+
+      // }
+    </script>
 </body>
 </html>
