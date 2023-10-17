@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+    
+    form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+    </style>
+    <form action="https://formspree.io/f/mdoryzrk" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_replyto" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit">Send Feedback</button>
+        <button type="submit" onclick="getEmailData()">getEmailData</button>
+      </form>
+      <div id="result">
+
+      </div>
+      <script>
+        // Lấy dữ liệu email từ Formspree và hiển thị trong HTML
+        async function getEmailData() {
+          try {
+            const response = await fetch('https://formspree.io/f/mdoryzrk');
+            const emailData = await response.json();
+    
+            // Hiển thị dữ liệu trong HTML
+            const emailDataList = document.getElementById('result');
+            emailData.forEach(email => {
+              const listItem = document.createElement('div');
+              listItem.textContent = email;
+              emailDataList.appendChild(listItem);
+            });
+          } catch (error) {
+            console.error('Lỗi khi lấy dữ liệu email:', error);
+          }
+        }
+    
+        // Gọi hàm getEmailData để lấy dữ liệu và hiển thị trong HTML
+        getEmailData();
+      </script>
+    
+</body>
+</html>
