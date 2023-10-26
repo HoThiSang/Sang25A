@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/Style_Send_Email.css">
+</head>
+<body>
+    <div class="container" >
+        <!-- <div id="cancel">
+            subnit
+                <button type="button" class="btn btn-danger mb-2" onclick="closeForm()">X</button>
+            </div> -->
+        <div class="container" id="formFeedback" >
+            <div id="cancel">
+                <!-- subnit -->
+                <button type="button" class="btn btn-danger mb-2" id="close" onclick="closeForm()">X</button>
+            </div>
+            <h5 class=" mt-md-4 mb-md-4" id="formFeedback-title">Send Email</h5>
+            <form   action="https://formspree.io/f/mdoryzrk" method="POST">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="Email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="message" rows="5" name="Feedback" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" id="openForm" class="btn" onclick="submitEmail()">Send</button>
+            </form>
+           
+        </div> 
+        <div class="icon-feedback">
+            <i class="fa fa-envelope"  aria-hidden="true" onclick="openMenu()"></i>
+        </div>
+    </div> 
+
+    <!-- <script src="../JS/Send_email.js"></script> -->
+    <script>
+        function openMenu() {
+  var form = document.getElementById("formFeedback");
+  form.style.display = "block";
+//   form.style.transition 1
+}
+
+function closeForm() {
+  var form = document.getElementById("formFeedback");
+  form.style.display = "none";
+}
+
+function submitEmail() {
+ 
+  // Sau khi gửi xong, bạn có thể đặt form về trạng thái ban đầu (ẩn đi)
+  closeForm();
+}
+    </script>
+    
+</body>
+</html>
